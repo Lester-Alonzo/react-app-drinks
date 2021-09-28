@@ -15,14 +15,16 @@ const style = {
   p: 4,
 };
 const Receta = ({ receta }) => {
-  const { informacion, guardarIdReceta } = useContext(ModalContext);
+  const { informacion, guardarIdReceta, guardarReceta } =
+    useContext(ModalContext);
 
   //configuracion del modal de material ui
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
-    setOpen(false);
     guardarIdReceta(null);
+    guardarReceta({});
+    setOpen(false);
   };
 
   return (
