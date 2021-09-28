@@ -26,6 +26,19 @@ const Receta = ({ receta }) => {
     guardarReceta({});
     setOpen(false);
   };
+  const mostrarIngredientes = (info) => {
+    let ingredientes = [];
+    for (let i = 1; i < 16; i++) {
+      if (info[`strIngredient${i}`]) {
+        ingredientes.push(
+          <li>
+            {info[`strIngredient${i}`]} {info[`strMeasure${i}`]}
+          </li>
+        );
+      }
+    }
+    return ingredientes;
+  };
 
   return (
     <div className="col-md-4 mb-3">
@@ -62,6 +75,8 @@ const Receta = ({ receta }) => {
                 alt={informacion.strDrink}
                 className="img-fluid my-4"
               />
+              <h3>Ingredientes y cantidades</h3>
+              <ul>{mostrarIngredientes(informacion)}</ul>
             </Box>
           </Modal>
         </div>
