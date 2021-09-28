@@ -8,7 +8,7 @@ export const ModalContext = createContext();
 const ModalProvider = (props) => {
   //state del provider
   const [idreceta, guardarIdReceta] = useState(null);
-  const [receta, guardarReceta] = useState({});
+  const [informacion, guardarReceta] = useState({});
   //una ves que tenemos una receta llamar a la apio
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const ModalProvider = (props) => {
   return (
     <ModalContext.Provider
       value={{
+        informacion,
         guardarIdReceta,
       }}
     >

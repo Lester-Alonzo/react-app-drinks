@@ -17,7 +17,8 @@ const style = {
   p: 4,
 };
 const Receta = ({ receta }) => {
-  const { guardarIdReceta } = useContext(ModalContext);
+  const { informacion, guardarIdReceta } = useContext(ModalContext);
+
   //configuracion del modal de material ui
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -53,7 +54,14 @@ const Receta = ({ receta }) => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <h1>Modal component</h1>
+              <h2 id="modal-title">{informacion.strDrink}</h2>
+              <h3 className="mt-4">Intrucciones de Preparacion</h3>
+              <p>{informacion.strInstructions}</p>
+              <img
+                src={informacion.strDrinkThumb}
+                alt={informacion.strDrink}
+                className="img-fluid my-4"
+              />
             </Box>
           </Modal>
         </div>
