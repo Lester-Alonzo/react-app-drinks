@@ -17,12 +17,14 @@ const style = {
   p: 4,
 };
 const Receta = ({ receta }) => {
+  const { guardarIdReceta } = useContext(ModalContext);
   //configuracion del modal de material ui
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const { guardarIdReceta } = useContext(ModalContext);
+  const handleClose = () => {
+    setOpen(false);
+    guardarIdReceta(null);
+  };
 
   return (
     <div className="col-md-4 mb-3">
@@ -51,12 +53,7 @@ const Receta = ({ receta }) => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Desde Modal
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
+              <h1>Modal component</h1>
             </Box>
           </Modal>
         </div>
